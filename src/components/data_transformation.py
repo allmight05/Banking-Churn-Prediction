@@ -211,10 +211,14 @@ class DataTransformation:
         try:
             # Read train data.
             train_df = pd.read_csv(self.train_data_path)
+            # Remove unnamed columns
+            train_df = train_df.loc[:, ~train_df.columns.str.contains('^Unnamed')]
             logger.logging.info("Train data read successfully for transformation.")
 
             # Read test data.
             test_df = pd.read_csv(self.test_data_path)
+            # Remove unnamed columns
+            test_df = test_df.loc[:, ~test_df.columns.str.contains('^Unnamed')]
             logger.logging.info("Test data read successfully for transformation.")
 
             # Filter out rows where the target value is -1, if target_column is provided.

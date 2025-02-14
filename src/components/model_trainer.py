@@ -58,7 +58,7 @@ class ModelTrainer:
                     'criterion': ['gini', 'entropy'],
                 },
                 "Random Forest": {
-                    'n_estimators': [50, 100, 200, 300, 400],
+                    'n_estimators': [50, 100, 200],
                     'max_depth': [None, 10, 20, 30, 40, 50],
                 },
                 "Gradient Boosting": {
@@ -69,8 +69,8 @@ class ModelTrainer:
                 "Logistic Regression": {},
                 "K-Neighbors Classifier": {},
                 "XGBClassifier": {
-                    'learning_rate': [0.1, 0.01, 0.05, 0.005, 0.001],
-                    'n_estimators': [50, 100, 150, 200, 250, 300, 350]
+                    'learning_rate': [0.1,0.01,0.05, 0.005, 0.001],
+                    'n_estimators': [50, 100, 150, 200, 250]
                 },
                 # # "CatBoosting Classifier": {
                 # #     'depth': [6, 8, 10],
