@@ -1,0 +1,105 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f7f9fc, #e2e8f0);
+  color: #333;
+  padding: 20px;
+}
+
+/* Container for the form */
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #222;
+}
+
+/* Form styling */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+form label {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+form label small {
+  font-size: 0.85em;
+  color: #888;
+  margin-left: 5px;
+}
+
+form input[type="number"],
+form input[type="text"],
+form input[type="date"],
+form input[type="datetime-local"],
+form select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="number"]:focus,
+form input[type="text"]:focus,
+form input[type="date"]:focus,
+form input[type="datetime-local"]:focus,
+form select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Submit button styling */
+form button[type="submit"] {
+  width: 100%;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+}

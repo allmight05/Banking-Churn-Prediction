@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Churn Risk Prediction Form</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Enter Data for Churn Risk Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="POST">
+      <!-- Numerical Features -->
+      <label for="age">Age: <small>(18 - 100)</small></label>
+      <input type="number" name="age" id="age" min="18" max="100" required>
+      
+      <label for="joining_date">Joining Date:</label>
+      <input type="date" name="joining_date" id="joining_date" required>
+      
+      <label for="last_visit_time">Last Visit Time:</label>
+      <input type="datetime-local" name="last_visit_time" id="last_visit_time" required>
+      
+      <label for="days_since_last_login">Days Since Last Login: <small>(0 - 30)</small></label>
+      <input type="number" name="days_since_last_login" id="days_since_last_login" min="0" max="30" required>
+      
+      <label for="avg_time_spent">Avg Time Spent (in minutes): <small>(0 - 300)</small></label>
+      <input type="number" step="any" name="avg_time_spent" id="avg_time_spent" min="0" max="300" required>
+      
+      <label for="avg_transaction_value">Avg Transaction Value: <small>(0 - 10000)</small></label>
+      <input type="number" step="any" name="avg_transaction_value" id="avg_transaction_value" min="0" max="10000" required>
+      
+      <label for="avg_frequency_login_days">Avg Frequency Login Days: <small>(0 - 30)</small></label>
+      <input type="number" step="any" name="avg_frequency_login_days" id="avg_frequency_login_days" min="0" max="30" required>
+      
+      <label for="points_in_wallet">Points in Wallet: <small>(0 - 10000)</small></label>
+      <input type="number" step="any" name="points_in_wallet" id="points_in_wallet" min="0" max="10000" required>
+      
+      <!-- Categorical Features as Dropdowns -->
+      <label for="gender">Gender:</label>
+      <select name="gender" id="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <label for="region_category">Region Category:</label>
+      <select name="region_category" id="region_category" required>
+        <option value="">Select Region</option>
+        <option value="Urban">Urban</option>
+        <option value="Semi-Urban">Semi-Urban</option>
+        <option value="Rural">Rural</option>
+      </select>
+      
+      <label for="membership_category">Membership Category:</label>
+      <select name="membership_category" id="membership_category" required>
+        <option value="">Select Membership Category</option>
+        <option value="Silver">Silver</option>
+        <option value="Gold">Gold</option>
+        <option value="Platinum">Platinum</option>
+      </select>
+      
+      <label for="joined_through_referral">Joined Through Referral:</label>
+      <select name="joined_through_referral" id="joined_through_referral" required>
+        <option value="">Select Option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="preferred_offer_types">Preferred Offer Types:</label>
+      <select name="preferred_offer_types" id="preferred_offer_types" required>
+        <option value="">Select Offer Type</option>
+        <option value="Discount">Discount</option>
+        <option value="Credit">Credit</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <label for="medium_of_operation">Medium of Operation:</label>
+      <select name="medium_of_operation" id="medium_of_operation" required>
+        <option value="">Select Medium</option>
+        <option value="Online">Online</option>
+        <option value="Offline">Offline</option>
+      </select>
+      
+      <label for="internet_option">Internet Option:</label>
+      <select name="internet_option" id="internet_option" required>
+        <option value="">Select Internet Option</option>
+        <option value="WiFi">WiFi</option>
+        <option value="Mobile Data">Mobile Data</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <label for="used_special_discount">Used Special Discount:</label>
+      <select name="used_special_discount" id="used_special_discount" required>
+        <option value="">Select Option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="offer_application_preference">Offer Application Preference:</label>
+      <select name="offer_application_preference" id="offer_application_preference" required>
+        <option value="">Select Preference</option>
+        <option value="Mobile App">Mobile App</option>
+        <option value="Email">Email</option>
+        <option value="SMS">SMS</option>
+      </select>
+      
+      <label for="past_complaint">Past Complaint:</label>
+      <select name="past_complaint" id="past_complaint" required>
+        <option value="">Select Option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="complaint_status">Complaint Status:</label>
+      <select name="complaint_status" id="complaint_status" required>
+        <option value="">Select Status</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Unresolved">Unresolved</option>
+      </select>
+      
+      <label for="feedback">Feedback:</label>
+      <select name="feedback" id="feedback" required>
+        <option value="">Select Feedback</option>
+        <option value="Positive">Positive</option>
+        <option value="Negative">Negative</option>
+        <option value="Neutral">Neutral</option>
+      </select>
+      
+      <button type="submit">Predict Churn Risk</button>
+    </form>
+  </div>
+</body>
+</html>

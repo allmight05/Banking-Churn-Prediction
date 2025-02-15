@@ -3,7 +3,6 @@ import pandas as pd
 from src.exceptions.exception import ProjectException
 from src.utils.util import load_object
 
-
 class PredictPipeline:
     def __init__(self):
         pass
@@ -14,8 +13,9 @@ class PredictPipeline:
             preprocessor_path = 'artifacts/preprocessor.pkl'
             model = load_object(file_path=model_path)
             preprocessor = load_object(file_path=preprocessor_path)
-            data_scaled = preprocessor.transform(features)
-            preds = model.predict(data_scaled)
+            # Process the input features using the preprocessor
+            data_processed = preprocessor.transform(features)
+            preds = model.predict(data_processed)
             return preds
         except Exception as e:
             raise ProjectException(e, sys)
@@ -43,8 +43,7 @@ class CustomData:
         offer_application_preference: str,
         past_complaint: str,
         complaint_status: str,
-        feedback: str,
-        churn_risk_score: int
+        feedback: str
     ):
         self.age = age
         self.gender = gender
@@ -66,7 +65,6 @@ class CustomData:
         self.past_complaint = past_complaint
         self.complaint_status = complaint_status
         self.feedback = feedback
-        self.churn_risk_score = churn_risk_score
 
     def get_data_as_data_frame(self):
         try:
@@ -90,39 +88,10 @@ class CustomData:
                 "offer_application_preference": [self.offer_application_preference],
                 "past_complaint": [self.past_complaint],
                 "complaint_status": [self.complaint_status],
-                "feedback": [self.feedback],
-                "churn_risk_score": [self.churn_risk_score]
+                "feedback": [self.feedback]
             }
             return pd.DataFrame(data_dict)
         except Exception as e:
             raise ProjectException(e, sys)
-        
-# input_data = CustomData(
-#     age=25,
-#     gender="Male",
-#     region_category="Urban",
-#     membership_category="Gold",
-#     joining_date="2022-01-15",
-#     joined_through_referral="Yes",
-#     preferred_offer_types="Discount",
-#     medium_of_operation="Online",
-#     internet_option="WiFi",
-#     last_visit_time="2022-12-01 10:00:00",
-#     days_since_last_login=5,
-#     avg_time_spent=15.5,
-#     avg_transaction_value=100.0,
-#     avg_frequency_login_days=3.5,
-#     points_in_wallet=200.0,
-#     used_special_discount="No",
-#     offer_application_preference="Email",
-#     past_complaint="No",
-#     complaint_status="Resolved",
-#     feedback="Positive",
-#     churn_risk_score=2
-# )
-# df = input_data.get_data_as_data_frame()
 
-# pipeline = PredictPipeline()
-# prediction = pipeline.predict(df)
-# print("Prediction:", prediction)
 

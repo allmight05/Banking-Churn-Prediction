@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Churn Risk Prediction Result</h1>
+    <p>The predicted churn risk score is: <strong>{{ prediction }}</strong></p>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+  </div>
+</body>
+</html>
