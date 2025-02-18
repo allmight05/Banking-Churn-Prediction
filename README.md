@@ -78,19 +78,3 @@ Make Predictions
 Run the prediction pipeline to get churn risk scores:
 
 python src/pipeline/predict_pipeline.py
-
-Technologies Used
-
-Python
-
-Pandas, NumPy (Data Processing)
-
-Scikit-learn (Machine Learning)
-
-TensorFlow/PyTorch (Optional for Deep Learning)
-
-Logging and Exception Handling Modules
-
-License
-
-This project is licensed under the MIT License.
